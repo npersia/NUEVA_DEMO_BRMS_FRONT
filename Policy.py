@@ -1,24 +1,25 @@
-import Driver
 class Policy:
-    def __init__(self,vehicleYear,driver):
+    def __init__(self,package,vehicleYear):
+        self.package = package
         self.requestDate = None
         self.policyType = "AUTO"
         self.vehicleYear = vehicleYear
         self.price = None
         self.priceDiscount = None
-        self.driver = driver
 
 
     def __str__(self):
-        ret = "vehicleYear: "+str(self.vehicleYear)+"\ndriver: \n"+str(self.driver)
+        ret = "vehicleYear: "+str(self.vehicleYear)
+        return ret
+
+    def getXML(self):
+        ret = "<"+str(self.package)+">"
+        ret += "\n\t<vehicleYear>"+str(self.vehicleYear)+"</vehicleYear>"
+        ret += "\n\t<policyType>"+str(self.policyType)+"</policyType>"
+        ret += "\n</"+str(self.package)+">"
         return ret
 
 
-
-
-
-
-"""
-a = Driver.Driver("Nahuel",26,0,5,200)
-p=Policy(1990,a)
-print(p)"""
+p = Policy("org.acme.insurance.Policy",2009)
+print(p)
+print(p.getXML())
