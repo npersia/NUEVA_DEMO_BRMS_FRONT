@@ -1,28 +1,29 @@
 MENSAJE
 
 <batch-execution  lookup="prueba">
-<insert-elements  return-object="true">
-<org.acme.insurance.Driver>
-<driverName>Nahuel</driverName>
-<numberOfAccidents>0</numberOfAccidents>
-<numberOfTickets>0</numberOfTickets>
-<age>19</age>
-<creditScore>500</creditScore>
-</org.acme.insurance.Driver>   
 
-<org.acme.insurance.Policy>
-<policyType>AUTO</policyType>
-</org.acme.insurance.Policy>
+<insert-elements  return-object="true">
+
+    <org.acme.insurance.Driver>
+        <driverName>Nahuel</driverName>
+        <numberOfAccidents>0</numberOfAccidents>
+        <numberOfTickets>0</numberOfTickets>
+        <age>19</age>
+        <creditScore>500</creditScore>
+    </org.acme.insurance.Driver>   
+
+    <org.acme.insurance.Policy>
+        <policyType>AUTO</policyType>
+        <vehicleYear>2009</vehicleYear>
+    </org.acme.insurance.Policy>
 
 </insert-elements>
-
 
 <fire-all-rules max="10"/>
 
 <query out-identifier="policy" name="getPolicy"/>
 <query out-identifier="driver" name="getDriver"/>
 <query out-identifier="rejection" name="getRejection"/>
-
 
 </batch-execution>
 
@@ -43,12 +44,12 @@ RESPUESTA
                     <identifier id="driver">
                         <org.acme.insurance.Driver>
                             <driverName>Nahuel</driverName>
-                            <age>19</age>
+                            <age>24</age>
                             <numberOfAccidents>0</numberOfAccidents>
                             <numberOfTickets>0</numberOfTickets>
                             <creditScore>500</creditScore>
                         </org.acme.insurance.Driver>
-                        <fact-handle external-form="0:1:837773273:837773273:1:DEFAULT:NON_TRAIT:org.acme.insurance.Driver"/>
+                        <fact-handle external-form="0:1:264607785:264607785:1:DEFAULT:NON_TRAIT:org.acme.insurance.Driver"/>
                     </identifier>
                 </row>
             </query-results>
@@ -67,30 +68,15 @@ RESPUESTA
                     <identifier id="policy">
                         <org.acme.insurance.Policy>
                             <policyType>AUTO</policyType>
+                            <vehicleYear>2009</vehicleYear>
                             <price>450</price>
                             <priceDiscount>10</priceDiscount>
-                            <priceSurcharge>200</priceSurcharge>
+                            <priceSurcharge>100</priceSurcharge>
                         </org.acme.insurance.Policy>
-                        <fact-handle external-form="0:2:1298655941:1298655941:7:DEFAULT:NON_TRAIT:org.acme.insurance.Policy"/>
+                        <fact-handle external-form="0:2:1699658574:1699658574:7:DEFAULT:NON_TRAIT:org.acme.insurance.Policy"/>
                     </identifier>
                 </row>
             </query-results>
         </result>
     </result>
 </org.kie.server.api.model.ServiceResponse>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
