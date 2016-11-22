@@ -25,6 +25,3 @@ class message:
         ret += "\n<query out-identifier='rejection' name='getRejection'/>"
         ret += "\n</batch-execution>"
         return ret
-
-
- 
