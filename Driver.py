@@ -1,4 +1,4 @@
-class Driver:
+class driver:
     def __init__(self,package,driverName,age,numberOfAccidents,numberOfTickets,creditScore):
         self.package = package
         self.driverName = driverName
@@ -23,8 +23,3 @@ class Driver:
         ret += "\n\t<creditScore>"+str(self.creditScore)+"</creditScore>"
         ret += "\n</"+str(self.package)+">"
         return ret    
-
-a = Driver("org.acme.insurance.Driver","Nahuel",26,0,5,100)
-print(a)
-print(a.getXML())
-

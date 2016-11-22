@@ -1,4 +1,4 @@
-class Policy:
+class policy:
     def __init__(self,package,vehicleYear):
         self.package = package
         self.requestDate = None
@@ -18,8 +18,3 @@ class Policy:
         ret += "\n\t<policyType>"+str(self.policyType)+"</policyType>"
         ret += "\n</"+str(self.package)+">"
         return ret
-
-
-p = Policy("org.acme.insurance.Policy",2009)
-print(p)
-print(p.getXML())
