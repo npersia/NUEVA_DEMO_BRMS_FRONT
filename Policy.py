@@ -14,7 +14,7 @@ class policy:
 
     def getXML(self):
         ret = "<"+str(self.package)+">"
-        ret += "\n\t<vehicleYear>"+str(self.vehicleYear)+"</vehicleYear>"
-        ret += "\n\t<policyType>"+str(self.policyType)+"</policyType>"
+        ret += "\n<vehicleYear>"+str(self.vehicleYear)+"</vehicleYear>"
+        ret += "\n<policyType>"+str(self.policyType)+"</policyType>"
         ret += "\n</"+str(self.package)+">"
         return ret

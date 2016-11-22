@@ -4,7 +4,7 @@ import Policy
 
 
 class message:
-    def __init__(self):
+    def __init__(self,lookup,max_fireallrules,driver,policy):
         self.lookup = lookup#nombre de la kiesesion
         self.driver = driver
         self.policy = policy
@@ -12,14 +12,19 @@ class message:
 
     def getXML(self):
 
-        ret = "<<batch-execution  lookup="+str(self.lookup)+">"
+        ret = "<batch-execution lookup='"+str(self.lookup)+"'>"
+        ret += "\n<insert-elements return-object='false'>"
+        ret += "\n"
+        ret += str(self.driver.getXML())
+        ret += "\n"
+        ret += str(self.policy.getXML())
+        ret += "\n</insert-elements>"
+        ret += "\n<fire-all-rules max='"+str(self.max_fireallrules)+"'/>"
+        ret += "\n<query out-identifier='policy' name='getPolicy'/>"
+        ret += "\n<query out-identifier='driver' name='getDriver'/>"
+        ret += "\n<query out-identifier='rejection' name='getRejection'/>"
+        ret += "\n</batch-execution>"
+        return ret
 
-        
-        ret = "<"+str(self.package)+">"
-        ret += "\n\t<driverName>"+str(self.driverName)+"</driverName>"
-        ret += "\n\t<age>"+str(self.age)+"</age>"
-        ret += "\n\t<numberOfAccidents>"+str(self.numberOfAccidents)+"</numberOfAccidents>"
-        ret += "\n\t<numberOfTickets>"+str(self.numberOfTickets)+"</numberOfTickets>"
-        ret += "\n\t<creditScore>"+str(self.creditScore)+"</creditScore>"
-        ret += "\n</"+str(self.package)+">"
-        return ret 
+
+ 

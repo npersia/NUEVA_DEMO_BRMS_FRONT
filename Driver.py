@@ -16,10 +16,10 @@ class driver:
 
     def getXML(self):
         ret = "<"+str(self.package)+">"
-        ret += "\n\t<driverName>"+str(self.driverName)+"</driverName>"
-        ret += "\n\t<age>"+str(self.age)+"</age>"
-        ret += "\n\t<numberOfAccidents>"+str(self.numberOfAccidents)+"</numberOfAccidents>"
-        ret += "\n\t<numberOfTickets>"+str(self.numberOfTickets)+"</numberOfTickets>"
-        ret += "\n\t<creditScore>"+str(self.creditScore)+"</creditScore>"
+        ret += "\n<driverName>"+str(self.driverName)+"</driverName>"
+        ret += "\n<age>"+str(self.age)+"</age>"
+        ret += "\n<numberOfAccidents>"+str(self.numberOfAccidents)+"</numberOfAccidents>"
+        ret += "\n<numberOfTickets>"+str(self.numberOfTickets)+"</numberOfTickets>"
+        ret += "\n<creditScore>"+str(self.creditScore)+"</creditScore>"
         ret += "\n</"+str(self.package)+">"
         return ret    
