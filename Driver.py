@@ -9,7 +9,6 @@ class driver:
         self.numberOfTickets = numberOfTickets
         self.creditScore = creditScore
 
-
     def __str__(self):
         ret = "driverName: "+str(self.driverName)+"\nage: "+str(self.age)+"\nnumberOfAccidents: "+str(self.numberOfAccidents)+"\nnumberOfTickets: "+str(self.numberOfTickets)+"\ncreditScore: "+str(self.creditScore)
         return ret
