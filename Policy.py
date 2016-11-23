@@ -1,5 +1,5 @@
 class policy:
-    def __init__(self,package,vehicleYear):
+    def newXmlObj(self,package,vehicleYear):
         self.package = package
         self.requestDate = None
         self.policyType = "AUTO"

@@ -97,19 +97,19 @@ x=root.findall(".//*[@id='rejection']")
 class response:
     def __init__(self,msj):
         self.root = ET.fromstring(msj)
-        #self.policies = self.root.findall(".//*[@id='policy']")
+        self.policies = self.generatePolicies(self.root.findall(".//*[@id='policy']"))
         self.drivers = self.generateDrivers(self.root.findall(".//*[@id='driver']"))
-        #self.rejections = self.root.findall(".//*[@id='rejection']")
+        self.rejections = self.generateRejections(self.root.findall(".//*[@id='rejection']"))
        
     def generateDrivers(self,drivers):
         ret = []
         for d in drivers:
-            aDriver = Driver.driver("",\
-                                d.findall(".//*/driverName")[0].text,\
-                                d.findall(".//*/age")[0].text,\
-                                d.findall(".//*/numberOfAccidents")[0].text,\
-                                d.findall(".//*/numberOfTickets")[0].text,\
-                                d.findall(".//*/creditScore")[0].text)
+            aDriver = Driver.driver()
+            aDriver.driverName = d.findall(".//*/driverName")[0].text
+            aDriver.age = d.findall(".//*/age")[0].text
+            aDriver.numberOfAccidents = d.findall(".//*/numberOfAccidents")[0].text
+            aDriver.numberOfTickets = d.findall(".//*/numberOfTickets")[0].text
+            aDriver.creditScore = d.findall(".//*/creditScore")[0].text
             ret.append(aDriver)
         return ret
 
@@ -117,13 +117,25 @@ class response:
     def generatePolicies(self,policies):
         ret = []
         for p in policies:
-            aPolicy = Policy.policy("",\
-                                d.findall(".//*/driverName")[0].text,\
-                                d.findall(".//*/age")[0].text,\
-                                d.findall(".//*/numberOfAccidents")[0].text,\
-                                d.findall(".//*/numberOfTickets")[0].text,\
-                                d.findall(".//*/creditScore")[0].text)
-            ret.append(aDriver)
+            aPolicy = Policy.policy()
+            aPolicy.driverName = p.findall(".//*/driverName")[0].text
+            aPolicy.age = p.findall(".//*/age")[0].text
+            aPolicy.numberOfAccidents = p.findall(".//*/numberOfAccidents")[0].text
+            aPolicy.numberOfTickets = p.findall(".//*/numberOfTickets")[0].text
+            aPolicy.creditScore = p.findall(".//*/creditScore")[0].text
+            ret.append(aPolicy)
+        return ret
+
+    def generateRejections(self,rejections):
+        ret = []
+        for r in rejections:
+            aRejection = Rejection.rejection()
+            aPolicy.driverName = p.findall(".//*/driverName")[0].text
+            aPolicy.age = p.findall(".//*/age")[0].text
+            aPolicy.numberOfAccidents = p.findall(".//*/numberOfAccidents")[0].text
+            aPolicy.numberOfTickets = p.findall(".//*/numberOfTickets")[0].text
+            aPolicy.creditScore = p.findall(".//*/creditScore")[0].text
+            ret.append(aPolicy)
         return ret
 
 
@@ -133,3 +145,6 @@ class response:
 ejemplo=response(a)
 for i in ejemplo.drivers:
     print(i)
+for i in ejemplo.policies:
+    print(i)
+

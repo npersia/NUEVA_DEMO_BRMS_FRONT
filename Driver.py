@@ -1,5 +1,6 @@
 class driver:
-    def __init__(self,package,driverName,age,numberOfAccidents,numberOfTickets,creditScore):
+
+    def newXmlObj(self,package,driverName,age,numberOfAccidents,numberOfTickets,creditScore):
         self.package = package
         self.driverName = driverName
         self.age = age
