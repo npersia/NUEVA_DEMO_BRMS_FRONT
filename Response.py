@@ -105,11 +105,37 @@ class response:
         ret = []
         for d in drivers:
             aDriver = Driver.driver()
-            aDriver.driverName = d.findall(".//*/driverName")[0].text
-            aDriver.age = d.findall(".//*/age")[0].text
-            aDriver.numberOfAccidents = d.findall(".//*/numberOfAccidents")[0].text
-            aDriver.numberOfTickets = d.findall(".//*/numberOfTickets")[0].text
-            aDriver.creditScore = d.findall(".//*/creditScore")[0].text
+            try:            
+                aDriver.driverName = d.findall(".//*/driverName")[0].text
+            except:
+                aDriver.driverName = None
+            try:
+                aDriver.age = d.findall(".//*/age")[0].text
+            except:
+                aDriver.age = None
+            try:
+                aDriver.ssn = d.findall(".//*/ssn")[0].text
+            except:
+                aDriver.ssn = None
+            try:
+                aDriver.dlNumber = d.findall(".//*/dlNumber")[0].text
+            except:
+                aDriver.dlNumber = None
+            try:
+                aDriver.numberOfAccidents = d.findall(".//*/numberOfAccidents")[0].text
+            except:
+                aDriver.numberOfAccidents = None
+            try:
+                aDriver.numberOfTickets = d.findall(".//*/numberOfTickets")[0].text
+            except:
+                aDriver.numberOfTickets = None
+            try:
+                aDriver.creditScore = d.findall(".//*/creditScore")[0].text
+            except:
+                aDriver.creditScore = None
+
+
+
             ret.append(aDriver)
         return ret
 
@@ -118,11 +144,26 @@ class response:
         ret = []
         for p in policies:
             aPolicy = Policy.policy()
-            aPolicy.driverName = p.findall(".//*/driverName")[0].text
-            aPolicy.age = p.findall(".//*/age")[0].text
-            aPolicy.numberOfAccidents = p.findall(".//*/numberOfAccidents")[0].text
-            aPolicy.numberOfTickets = p.findall(".//*/numberOfTickets")[0].text
-            aPolicy.creditScore = p.findall(".//*/creditScore")[0].text
+            try:
+                aPolicy.requestDate = p.findall(".//*/requestDate")[0].text
+            except:
+                aPolicy.requestDate = None
+            try:
+                aPolicy.policyType = p.findall(".//*/policyType")[0].text
+            except:
+                aPolicy.policyType = None
+            try:
+                aPolicy.vehicleYear = p.findall(".//*/vehicleYear")[0].text
+            except:
+                aPolicy.vehicleYear = None
+            try:
+                aPolicy.price = p.findall(".//*/price")[0].text
+            except:
+                aPolicy.price = None
+            try:
+                aPolicy.priceDiscount = p.findall(".//*/priceDiscount")[0].text
+            except:
+                aPolicy.price = None
             ret.append(aPolicy)
         return ret
 
@@ -130,12 +171,11 @@ class response:
         ret = []
         for r in rejections:
             aRejection = Rejection.rejection()
-            aPolicy.driverName = p.findall(".//*/driverName")[0].text
-            aPolicy.age = p.findall(".//*/age")[0].text
-            aPolicy.numberOfAccidents = p.findall(".//*/numberOfAccidents")[0].text
-            aPolicy.numberOfTickets = p.findall(".//*/numberOfTickets")[0].text
-            aPolicy.creditScore = p.findall(".//*/creditScore")[0].text
-            ret.append(aPolicy)
+            try:
+                aRejection.reason= p.findall(".//*/reason")[0].text
+            except:
+                aRejection.reason = None
+            ret.append(aRejection)
         return ret
 
 
@@ -146,5 +186,7 @@ ejemplo=response(a)
 for i in ejemplo.drivers:
     print(i)
 for i in ejemplo.policies:
+    print(i)
+for i in ejemplo.rejections:
     print(i)
 
