@@ -8,8 +8,8 @@ import Policy
 #policy
 m = Message.message("prueba",\
                     10,\
-                    Driver.driver("org.acme.insurance.Driver","Nahuel",19,0,0,500),\
-                    Policy.policy("org.acme.insurance.Policy",2009)\
+                    Driver.driver().newXmlObj("org.acme.insurance.Driver","Nahuel",19,0,0,500),\
+                    Policy.policy().newXmlObj("org.acme.insurance.Policy",2009)\
 )
 
 
